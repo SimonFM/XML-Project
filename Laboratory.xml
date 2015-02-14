@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-->
+  This document contains the database for the laboratories that test
+  the finished product from the factory, using technicians.
+  It describes that the laboratories in this XML document must contain 
+  the DTD describes below.
+  
+  ELEMENTS
+  - The laboratoryList element must contain at least one laboratory element
+    in order for the list to be valid.
+  - A laboratory element must contain, a location, the apparatus in the lab, 
+    the employees in that lab and safetyGuidelines.
+  - The safetyGuidelines have a safetyOfficer and a safetyStandard.
+  - The apparatus has the result of the Test.
+  - The employees element also contains the currentEmployees.
+  
+  ATTRIBUTES
+  - The totalEmployees is the currentEmployees in the lab and is needed
+    in the document,
+  - The town is need in the location.
+  - The labStation is where the employee worked, and is needed.
+  - The timeUsed for apparatus is also needed.
+  - DaysSinceCasualty is also needed, as it would be part of safetyStanards.
+</!-->
+
+<!DOCTYPE laboratoryList [
+  <!ELEMENT laboratoryList (laboratory*)>
+  <!ELEMENT laboratory (location, apparatus,employees, safetyGuidelines)>
+  <!ELEMENT safetyGuidelines (safetyOfficer,safetyStandard)>
+  <!ELEMENT apparatus (resultOfTest)>
+  <!ELEMENT employees (currentEmployees)>
+  <!ELEMENT safetyOfficer (#PCDATA)>
+  <!ELEMENT safetyStandard (#PCDATA)>  
+  <!ELEMENT resultOfTest (#PCDATA)>
+  <!ELEMENT location (street,county)>
+  <!ELEMENT county (#PCDATA)>
+  <!ELEMENT street (#PCDATA)>
+  <!ELEMENT currentEmployees (#PCDATA)>
+  
+  <!ATTLIST employees totalEmployees CDATA #REQUIRED>
+  <!ATTLIST location town CDATA #REQUIRED>  
+  <!ATTLIST laboratory labStation CDATA #REQUIRED>
+  <!ATTLIST apparatus timeUsed CDATA #REQUIRED>
+  <!ATTLIST safetyGuidelines daysSinceCasualty CDATA #REQUIRED>
+  <!ATTLIST laboratory factoryID CDATA #REQUIRED>
+  <!ATTLIST employees technician CDATA #REQUIRED>
+]>
+
+<laboratoryList>
+
+<laboratory factoryID ="098" labStation = "12">
+  <location town = "Bray">
+    <street>Boghall Road</street>
+    <county>Wicklow</county>
+  </location>
+  
+  <apparatus timeUsed ="30 minutes">
+  
+    <resultOfTest>Passed</resultOfTest>
+  </apparatus>
+  
+  <employees totalEmployees = "7" technician = "Pete12">
+    <currentEmployees>3</currentEmployees>
+  </employees>  
+  
+  <safetyGuidelines daysSinceCasualty = "23">
+  
+    <safetyOfficer>Bob MacSabhail</safetyOfficer>
+    <safetyStandard>v2.1</safetyStandard>
+    
+  </safetyGuidelines>
+  
+</laboratory>
+
+<laboratory factoryID ="1234" labStation = "11">
+  <location town = "Bray">
+    <street>Boghall Road</street>
+    <county>Wicklow</county>
+  </location>
+  
+  <apparatus timeUsed ="30 minutes" >
+    <resultOfTest>Passed</resultOfTest>
+  </apparatus>
+  
+  <employees totalEmployees = "8" technician = "Simon23">
+    <currentEmployees>2</currentEmployees>
+  </employees>  
+  
+  <safetyGuidelines daysSinceCasualty = "23">
+  
+    <safetyOfficer>Bob MacSabhail</safetyOfficer>
+    <safetyStandard>v2.1</safetyStandard>
+    
+  </safetyGuidelines>
+  
+</laboratory>
+
+</laboratoryList>

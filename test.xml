@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-->
+  This is how you declare DTD.
+</!-->
+<!DOCTYPE testingYou [
+  <!ELEMENT testingYou (me)>
+  <!ELEMENT me (hi)>
+  <!ELEMENT hi (#PCDATA)>
+]>
+<!-->
+  It follows on from the DTD, saying that it must have all
+  these values. Not neccessarily in that order.
+</!-->
+<testingYou>
+  <me>
+    <hi>Simon</hi>
+  </me>
+</testingYou>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-->
+  This document contains the database for the factories.
+  Each of the factories must have the elements and the 
+  attributes listed below in the DTD.
+  
+  ELEMENTS
+  - The factoryList contains one or more factories, indicated by the '*'
+	while a factory must contain the location, the type of machinery 
+	contained in that factory, the quota of products it must produce,
+	the total number of employees in that factory and the current order
+	being produced.
+  - location contains the street, county and the country the factory is
+	in.
+  - while machineryType, quota, employeeCount and order are child
+	elements that are within the factory element.
+  
+  ATTRIBUTES
+  - town is an attribute of the county element,
+  - employeeCount is an attribute of the activeEmployees, and shows how 
+    many employees are currently working.
+  - street contains the number on the street the factory is on.
+  - factoryID is an attribute of the factory element and allows the 
+	pharmaceutical company to quickly search in their databases for the 
+    desired customer.
+   
+  
+</!-->
+<!DOCTYPE factoryList [
+  <!ELEMENT factoryList (factory*)>
+  <!ELEMENT factory (location, machineryType, quota, employeeCount, orderTotal)>
+  <!ELEMENT location (street, county, country)>
+  <!ELEMENT street (#PCDATA)>
+  <!ELEMENT county (#PCDATA)>
+  <!ELEMENT country (#PCDATA)>
+  <!ELEMENT machineryType (#PCDATA)>
+  <!ELEMENT quota (#PCDATA)>
+  <!ELEMENT employeeCount (#PCDATA)>
+  <!ELEMENT orderTotal (#PCDATA)>
+  
+  
+  <!ATTLIST county town CDATA #REQUIRED>
+  <!ATTLIST employeeCount activeEmployees CDATA #REQUIRED>
+  <!ATTLIST street number CDATA #IMPLIED>
+  <!ATTLIST factory factoryID CDATA #REQUIRED>
+  <!ATTLIST orderTotal company CDATA #REQUIRED>
+  <!ATTLIST orderTotal type CDATA #REQUIRED>
+ ]>
+
+<factoryList>
+
+  <factory factoryID ="98">
+     <location>
+      <street number = "234">Grove Street</street>
+      <county town="Arklow">Wicklow</county>
+      <country>Ireland</country>
+      
+    </location>
+    
+    <machineryType>Heavy</machineryType>
+    <quota>5000</quota>
+    <employeeCount activeEmployees="32">50</employeeCount>
+    <orderTotal company = "Peppar's Lonely Heart Club" type = "Drug 11">500000</orderTotal>
+    
+  </factory>
+  
+  <factory factoryID = "1234">
+    <location>
+  
+      <street number = "12">SeaView Road</street>
+      <county town ="Dingle">Kerry</county>
+      <country>Ireland</country>
+      
+    </location>
+    
+    <machineryType>Heavy</machineryType>
+    <quota>5000</quota>
+    <employeeCount activeEmployees = "53">72</employeeCount>
+    <orderTotal company = "Feel Good Inc." type = "Drug 11">30000</orderTotal>
+    
+  </factory>
+  
+  <factory factoryID = "1234">
+    <location>
+    
+      <street number = "23">Boghall Road</street>
+      <county town="Bray">Wicklow</county>
+      <country>Ireland</country>
+      
+    </location>
+    
+    <machineryType>Light</machineryType>
+    <quota>5000</quota>
+    <employeeCount activeEmployees ="32">50</employeeCount>
+    <orderTotal company = "LifeInvader" type = "Drug 11">3000</orderTotal>
+    
+  </factory>
+</factoryList>

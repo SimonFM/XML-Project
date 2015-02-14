@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-->
+  This document contains the database for the technicians who
+  are testing products in the laboratory.
+  It describes that the factories in this XML document must contain 
+  the DTD describes below.
+  
+  ELEMENTS
+  
+  - The technicianList contains one or more technicians
+  - A technician has an identification, their job, contactDetails and their laboratory
+  - An identification has a name and a union they are apart of.
+  - A job has a salary and hours.
+  - The contactDetails have an address and email.
+  - A laboratory has an activity.
+  
+  - The elements name, union, salary, hours, telephoneNumber, email,
+    address and activity are all child elements of other parent elements.
+    
+  ATTRIBUTES
+  
+  - A job has a title attribute and does not have to be included in the data.
+  - A labStation is an attribute of a lab and is not needed all the time.
+  - An employeeID is an attribute of an employee and is required.
+  - The technician also has an attribute called factoryID, and is required. It
+    tells the system which factory is assigned to.
+</!-->
+
+<!DOCTYPE technicianList [
+  <!ELEMENT technicianList (technician*)>
+  <!ELEMENT technician (identification, job, contactDetails, currentTest, laboratory)>
+  <!ELEMENT identification (name, union)>
+  <!ELEMENT job (salary, hours)>
+  <!ELEMENT contactDetails (address,email) >
+  <!ELEMENT laboratory (activity)>
+  <!ELEMENT currentTest (product)>
+  <!ELEMENT product (#PCDATA)>
+  <!ELEMENT name (#PCDATA)>
+  <!ELEMENT union (#PCDATA)>
+  <!ELEMENT salary (#PCDATA)>
+  <!ELEMENT hours (#PCDATA)>
+  <!ELEMENT telephoneNumber (#PCDATA)>
+  <!ELEMENT email (#PCDATA)>
+  <!ELEMENT address (#PCDATA)>
+  <!ELEMENT activity (#PCDATA)>
+  
+  <!ATTLIST currentTest result CDATA #REQUIRED>
+  <!ATTLIST job title CDATA #IMPLIED>
+  <!ATTLIST laboratory labStation CDATA #IMPLIED>
+  <!ATTLIST identification employeeID CDATA #REQUIRED>
+  <!ATTLIST contactDetails telephoneNumber CDATA #REQUIRED>
+  <!ATTLIST technician factoryID CDATA #REQUIRED>
+ ]>
+
+<technicianList>
+
+<technician factoryID = "98">
+
+<identification employeeID="Pete12">
+    <name>Pete Hughes</name>
+    <union>IRSA</union>
+  </identification>
+  
+  <job title = "Pharmacist">
+    <salary>50000</salary>
+    <hours>37</hours>
+  </job>
+  
+  <contactDetails telephoneNumber="01-435532131">
+    <address>23 Coolock Road, Coolock</address>
+    <email>Philip.Hughes@Pharmy.com</email>
+  </contactDetails>
+  
+  <currentTest result = "Passed">
+    <product>Drug 11</product>
+  </currentTest>
+  
+  
+  <laboratory labStation = "11">
+    <activity>Testing</activity>
+  </laboratory>
+  
+  </technician>
+  
+<technician factoryID = "1234">
+
+<identification employeeID="Phil14">
+    <name>Phillip Youtibe</name>
+    <union>IRSA</union>
+  </identification>
+  
+  <job title = "Pharmacist">
+    <salary>60000</salary>
+    <hours>25</hours>
+  </job>
+  
+  <contactDetails telephoneNumber="01-45343288932">
+    <address>23 Boghall Road, Bray</address>
+    <email>Philip.Youtibe@Pharmy.com</email>
+  </contactDetails>
+  
+  <currentTest result = "Failed">
+    <product>Drug 11</product>
+  </currentTest>  
+  
+  <laboratory labStation = "12">
+    <activity>Testing</activity>
+  </laboratory>
+  
+  </technician>
+  
+  
+<technician factoryID= "1234">
+
+<identification employeeID="Simon23">
+    <name>Simon Phil-Pot</name>
+    <union>IRSA</union>
+  </identification>
+  
+  <job title = "Intern">
+    <salary>2000</salary>
+    <hours>16</hours>
+  </job>
+  
+  <contactDetails telephoneNumber="03-123435334">
+    <address>23 Boghall Road, Bray</address>
+    <email>Simon.Phil-Pot@Pharmy.com</email>
+  </contactDetails>
+  
+  <currentTest result = "Passed">
+    <product>Drug 11</product>
+  </currentTest>
+  
+  <laboratory labStation = "5">
+    <activity>Assistence</activity>
+  </laboratory>
+  
+  </technician>
+  
+</technicianList>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-->
+  This document contains the database for the companies who
+  are purchasing products off of the pharmaceutical manufacturer.
+  It describes that the factories in this XML document must contain 
+  the DTD describes below.
+  
+  ELEMENTS
+  - companyList has a '*' for there could be one or more customers.
+  -	contactDetails would have email and an address.
+  -	company has an identification, an order and there contactDetails.
+  -	then all the values email, address, name and order are the values
+	each company must have.
+  
+  ATTRIBUTES
+  - contactDetails contains a telephoneNumber attribute that is required.
+  - identification contains a companyID that may or may not be required.
+  - order also contains the total amount ordered from a company, that 
+	is required.
+</!-->
+
+<!DOCTYPE companyList [
+  <!ELEMENT companyList (company*)>
+  <!ELEMENT company (identification, order, contactDetails)>
+  <!ELEMENT contactDetails (email, address)>
+  <!ELEMENT identification (name)>
+  <!ELEMENT address (#PCDATA)>
+  <!ELEMENT email (#PCDATA)>
+  <!ELEMENT name (#PCDATA)>
+  <!ELEMENT order (#PCDATA)>
+  
+  <!ATTLIST contactDetails telephoneNumber CDATA #REQUIRED>
+  <!ATTLIST company companyID CDATA #IMPLIED>
+  <!ATTLIST order orderTotal CDATA #REQUIRED>
+  <!ATTLIST identification reputation CDATA #REQUIRED>
+]>
+<companyList>
+    <company companyID = "12345">
+      <identification reputation = "Good">
+        <name>Feel Good Inc.</name>
+      </identification>
+    <order orderTotal = "30000">Drug 23</order>
+    <contactDetails telephoneNumber = "123456789">
+      <email>customerSupport@FeelGoodInc.com</email>
+      <address>123 Fakestreet, FakeVille</address>
+    </contactDetails>
+    
+    </company>
+    
+    <company companyID = "34244">
+
+      <identification reputation = "Good">
+        <name>LifeInvader</name>
+      </identification>
+    <order orderTotal = "3000">Drug 11</order>
+    
+    <contactDetails telephoneNumber = "987654321">
+      <email>customerSupport@lifeInvader.com</email>
+      <address>234 Mountain View, Los Santos</address>
+    </contactDetails>
+    
+    </company>
+    
+    <company companyID = "83373">
+      <identification reputation = "NA">
+        <name>Peppar's Lonely Heart Club</name>
+      </identification>
+    <order orderTotal = "500000">Drug 1</order>
+    
+    <contactDetails telephoneNumber = "833735001">
+      <email>customerSupport@Beetles.com</email>
+      <address>4 Abbey Road, London</address>
+    </contactDetails>
+    
+    </company>
+</companyList>
